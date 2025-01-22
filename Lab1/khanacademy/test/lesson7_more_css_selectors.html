@@ -1,0 +1,214 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Using multiple CSS classes</title>
+        <style>
+            p {
+                font-family: monospace;
+            }
+            
+            #donut-header {
+                font-family: "Garamond", "Palatino", serif;
+            }
+            
+            .fact {
+                border-top: 1px solid rgb(222, 222, 222);
+                border-bottom: 1px solid rgb(222, 222, 222);
+                padding-top: 6px;
+                padding-bottom: 6px;
+            }
+            .warning{
+                background-color: red;
+                color: white;
+            }
+
+            p.warning {
+                border: 5px solid orange;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <h1 id="donut-header">Donut Nutrition Facts</h1>
+
+        <p class="fact warning">
+            Warning: Eating too many donuts can be bad for your health. Just ask Winston.
+        </p>
+
+        <p>A donut is a type of <strong class="warning">deep fried</strong> dough confectionery or dessert food. The doughnut is popular in many countries and prepared in various forms as a sweet snack that can be homemade or purchased in bakeries, supermarkets, food stalls, and franchised specialty outlets.</p>
+        
+        <p class="fact">
+            Did you know? Donut can also be spelled "doughnut."
+        </p>
+        
+        <p>The two most common types are the <strong>toroidal ring doughnut</strong> and the <strong>filled doughnut</strong>—which is injected with fruit preserves, cream, custard, or other sweet fillings. A small spherical piece of dough may be cooked as a doughnut hole. Other shapes include rings, balls, and flattened spheres, as well as ear shapes, twists and other forms. Doughnut varieties are also divided into cake and risen type doughnuts.</p>
+    </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS descendant selectors</title>
+        <style>
+            .orange {
+                background-color: orange;
+            }
+            
+            .yellow {
+                background-color: yellow;
+            }
+            
+            .purple {
+                background-color: purple;
+                color: white;
+            }
+            p .purple {
+                color: purple;
+                background-color: transparent;
+            }
+            ul.spacey li strong {
+                line-height: 2em;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <h1>Carrot Facts</h1>
+        
+        <p>Colors that carrots come in:</p>
+        <ul class="spacey">
+            <li>
+                <strong class="orange">Orange</strong>
+            </li>
+            <li>
+                <strong class="purple">Purple</strong>
+            </li>
+            <li>
+                <strong class="yellow">Yellow</strong>
+            </li>
+        </ul>
+        
+        <p>Did you know? Carrots were <strong class="purple">purple</strong> before the 17th century, but then were cultivated by Dutch farmers until they became the sweet orange carrots that we know today.</p>
+
+    </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Grouping CSS selectors</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            
+            h1, h2 {
+                font-family: cursive;
+            }
+            a:hover, a:active, a:focus { 
+                background-color: rgb(255, 214, 255);
+            }  
+        </style>
+    </head>
+    <body>
+    
+        <h1>Famous paintings</h1>
+        
+        <p>You can learn more about these famous paintings on <a href="https://www.khanacademy.org">Khan Academy</a>.</p>
+        
+        
+        <h2>Baroque</h2>
+        <ul>
+            <li>
+                <a href="https://www.khanacademy.org/humanities/monarchy-enlightenment/baroque-art1/spain/v/vel-zquez-las-meninas-c-1656">
+                    Velázquez, Las Meninas
+                </a>
+            </li>
+            <li>
+                <a href="https://www.khanacademy.org/humanities/monarchy-enlightenment/baroque-art1/baroque-italy/v/caravaggio-s-calling-of-st-matthew-c-1599-1600">Caravaggio, Calling of St. Matthew</a>
+            </li>
+            <li>
+                <a href="https://www.khanacademy.org/humanities/monarchy-enlightenment/baroque-art1/holland/v/rembrandt-nightwatch">Rembrandt, Night watch</a>
+            </li>
+        </ul>
+        
+        <h2>Mannerism</h2>
+        <ul>
+            <li>
+                <a href="https://www.khanacademy.org/humanities/renaissance-reformation/mannerism1/v/parmigianino-madonna-of-the-long-neck-1530-33">
+                    Parmigianino, Madonna of the Long Neck
+                </a>
+            </li>
+            <li>
+                <a href="https://www.khanacademy.org/humanities/renaissance-reformation/mannerism1/a/el-greco-view-of-toledo">
+                    El Greco, View of Toledo
+                </a>
+            </li>
+        </ul>
+        
+        <h2>Abstract</h2>
+        <ul>
+            <li>
+                <a href="https://www.khanacademy.org/humanities/art-1010/early-abstraction/cubism/a/picasso-guernica">
+                    Picasso, Guernica
+                </a>
+            </li>
+            <li>
+                <a href="https://www.khanacademy.org/humanities/art-1010/early-abstraction/cubism/a/braque-the-portuguese">
+                    Braque, The Portuguese
+                </a>
+            </li>
+        </ul>
+        
+        
+
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS specificity</title>
+        <style>
+            p {
+                font-family: sans-serif;
+                color: orange
+            }
+
+            .important {
+                background-color: yellow;
+            }
+            
+            .info-paragraph {
+                background-color: orange;
+                color: blue;
+            }
+            
+            #main-paragraph {
+                font-weight: bold;
+                color: green
+            }
+        </style>
+    </head>
+    <body>
+    
+    <p>This is a snippet from the <a href="http://en.wikipedia.org/wiki/Pacific_Ocean">longer Wikipedia article</a>.</p>
+    
+    <h1>The Pacific Ocean</h1>
+
+    <p id="main-paragraph" class="info-paragraph important">
+    The Pacific Ocean is the largest of the Earth's oceanic divisions. It extends from the Arctic Ocean in the north to the Southern Ocean (or, depending on definition, to Antarctica) in the south and is bounded by Asia and Australia in the west and the Americas in the east.</p>
+
+    <p class="info-paragraph">At 165.25 million square kilometers (63.8 million square miles) in area, this largest division of the World Ocean – and, in turn, the hydrosphere – covers about 46% of the Earth's water surface and about one-third of its total surface area, making it larger than all of the Earth's land area combined.[1] The equator subdivides it into the North Pacific Ocean and South Pacific Ocean, with two exceptions: the Galápagos and Gilbert Islands, while straddling the equator, are deemed wholly within the South Pacific. The Mariana Trench in the western North Pacific is the <strong class="important">deepest point in the world</strong>, reaching a depth of 10,911 metres (35,797 ft).</p>
+
+    <p class="info-paragraph">The eastern Pacific Ocean was first sighted by Europeans in the early 16th century when Spanish explorer Vasco Núñez de Balboa crossed the Isthmus of Panama in 1513 and discovered the great "southern sea" which he named Mar del Sur. The ocean's current name was coined by Portuguese explorer Ferdinand Magellan during the Spanish circumnavigation of the world in 1521, as he encountered favourable winds on reaching the ocean. He therefore called it Mar Pacifico in Portuguese, meaning "peaceful sea".
+    </p>
+    
+    </body>
+</html>
