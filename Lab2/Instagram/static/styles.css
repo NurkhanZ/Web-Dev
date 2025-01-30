@@ -103,6 +103,8 @@ body {
     border: 1px solid var(--box-border-color);
     border-radius: 3px;
     position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .animate-input span {
