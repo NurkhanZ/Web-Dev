@@ -25,8 +25,11 @@ body {
 }
 
 .slide-container {
+    display: flex;
     height: 618px;
-    flex-basis: 454px;
+    flex-basis: 450px;
+    align-self: flex-end;
+
 }
 
 .slide-content {
@@ -52,7 +55,7 @@ body {
     max-width: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
 }
 
 .box {
