@@ -31,13 +31,11 @@ function newElement() {
     document.getElementById("inputScript").value = "";
 
     let span = document.createElement("SPAN");
-    let txt = document.createTextNode("\u00D7");
     let checkbox = document.createElement("INPUT")
     checkbox.type = "checkbox";
     checkbox.className = "checkbox";
 
     span.className = "close";
-    span.appendChild(txt);
     li.appendChild(span);
     li.appendChild(checkbox);
 
