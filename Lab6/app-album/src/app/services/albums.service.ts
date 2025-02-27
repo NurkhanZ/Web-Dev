@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 
 export interface Album {
   id: number;
@@ -21,24 +21,47 @@ export interface Photo {
 export class AlbumsService {
 
   private baseUrl = "https://jsonplaceholder.typicode.com";
+  private albumsCache: Album[] = []
 
   constructor(private http: HttpClient) {}
 
-  // album-detail component
   getAlbums(): Observable<Album[]>{
-    return this.http.get<Album[]>(`${this.baseUrl}/albums`);
+    if(this.albumsCache.length > 0){
+      return of(this.albumsCache);
+    } else {
+      return this.http.get<Album[]>(`${this.baseUrl}/albums`).pipe(
+        tap(albums => (this.albumsCache = albums))
+      );
+    }
+
   }
 
   getAlbum(id: number): Observable<Album>{
-    return this.http.get<Album>(`${this.baseUrl}/albums/${id}`)
+    const cachedAlbum = this.albumsCache.find(album => album.id === id);
+    if(cachedAlbum){
+      return of(cachedAlbum);
+    } else {
+      return this.http.get<Album>(`${this.baseUrl}/albums/${id}`)
+    }
   }
 
   deleteAlbum(id: number): Observable<any>{
-    return this.http.delete(`${this.baseUrl}/albums/${id}`);
+    return this.http.delete(`${this.baseUrl}/albums/${id}`).pipe(
+      tap(() => {
+        this.albumsCache = this.albumsCache.filter(album => album.id !== id);
+      })
+    );
   }
 
   updateAlbum(id: number, title: string): Observable<Album>{
-    return this.http.put<Album>(`${this.baseUrl}/albums/${id}`, {title});
+    return this.http.put<Album>(`${this.baseUrl}/albums/${id}`, { title }).pipe(
+      tap(updatedAlbum => {
+        const index = this.albumsCache.findIndex(a => a.id === id);
+        if (index !== -1) {
+          this.albumsCache[index] = updatedAlbum;
+        }
+      })
+    );
   }
 
   getPhotos(albumId: number): Observable<Photo[]>{

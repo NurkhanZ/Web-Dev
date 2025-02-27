@@ -29,7 +29,9 @@ export class AlbumDetailComponent implements OnInit {
 
   save(): void {
     if(this.album){
-      this.albumsService.updateAlbum(this.album.id, this.album.title).subscribe();
+      this.albumsService.updateAlbum(this.album.id, this.album.title).subscribe(response => {
+        console.log('updated album:', response);
+      });
     }
   }
 

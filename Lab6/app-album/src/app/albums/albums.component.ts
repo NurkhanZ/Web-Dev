@@ -17,18 +17,18 @@ export class AlbumsComponent implements OnInit {
   constructor(private albumsService: AlbumsService, private router: Router){}
 
   ngOnInit(): void {
-      this.loadAlbums();
+    this.loadAlbums();
   }
 
   loadAlbums(): void {
-    this.albumsService.getAlbums().subscribe((data) => {
+    this.albumsService.getAlbums().subscribe(data => {
       this.albums = data;
     });
   }
 
   deleteAlbum(id: number) : void {
     this.albumsService.deleteAlbum(id).subscribe(() => {
-      this.loadAlbums();
+      this.albums = this.albums.filter(album => album.id !== id)
     })
   }
 
