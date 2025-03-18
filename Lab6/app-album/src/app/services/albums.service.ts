@@ -36,6 +36,10 @@ export class AlbumsService {
 
   }
 
+  createAlbum(title:string):Observable<Album>{
+    return this.http.post<Album>(`${this.baseUrl}/albums`, {title});
+  }
+
   getAlbum(id: number): Observable<Album>{
     const cachedAlbum = this.albumsCache.find(album => album.id === id);
     if(cachedAlbum){
@@ -45,12 +49,8 @@ export class AlbumsService {
     }
   }
 
-  deleteAlbum(id: number): Observable<any>{
-    return this.http.delete(`${this.baseUrl}/albums/${id}`).pipe(
-      tap(() => {
-        this.albumsCache = this.albumsCache.filter(album => album.id !== id);
-      })
-    );
+  deleteAlbum(id:number){
+    return this.http.delete<void>(`${this.baseUrl}/albums/${id}`)
   }
 
   updateAlbum(id: number, title: string): Observable<Album>{

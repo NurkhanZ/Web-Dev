@@ -1,5 +1,7 @@
 <div class="album-container">
     <h2>Albums</h2>
+    <input [(ngModel)]="title" placeholder="New album title">
+    <button (click)="createAlbum()">Add Album</button>
     <ul>
         <li *ngFor="let album of albums">
             <span (click)="goToDetails(album.id)" style="cursor:pointer;">

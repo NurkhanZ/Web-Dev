@@ -3,7 +3,7 @@
     
     <div class="photo-grid">
       <div *ngFor="let photo of photos" class="photo-item">
-        <img [src]="'https://jsonplaceholder.typicode.com' + photo.url" [alt]="photo.title">
+        <img [src]="photo.url" [alt]="photo.title">
         <p [title]="photo.title">{{ photo.title.length > 15 ? (photo.title | slice:0:15) + '...' : photo.title }}</p>
       </div>
     </div>

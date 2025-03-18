@@ -26,6 +26,14 @@ export class AlbumsComponent implements OnInit {
     });
   }
 
+  createAlbum(): void {
+    if (!this.title.trim()) return;
+    this.albumsService.createAlbum(this.title).subscribe(() => {
+      this.title = '';
+      this.loadAlbums();
+    });
+  }
+
   deleteAlbum(id: number) : void {
     this.albumsService.deleteAlbum(id).subscribe(() => {
       this.albums = this.albums.filter(album => album.id !== id)
