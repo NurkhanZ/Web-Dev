@@ -1,11 +1,31 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Company } from '../models';
+import {CompanyService} from '../company.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-companies',
-  imports: [],
   templateUrl: './companies.component.html',
-  styleUrl: './companies.component.css'
+  styleUrls: ['./companies.component.css'],
+  imports: [CommonModule],
 })
-export class CompaniesComponent {
+export class CompaniesComponent implements OnInit {
+
+  companies: Company[] = [];
+
+  constructor(private companyService: CompanyService) { }
+
+  ngOnInit(): void {
+    this.getCompanies()
+  }
+  getCompanies(){
+    this.companyService.getCompanies().subscribe((data)=>{
+      this.companies = data;
+    });
+  }
+  getVacancies(id:any){
+    this.companyService.getVacancies(id).subscribe((data)=>{
+      this.companyService.setData(data);
+    });
+  }
 
 }
