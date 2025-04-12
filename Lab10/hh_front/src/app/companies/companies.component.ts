@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Company } from '../models';
 import {CompanyService} from '../company.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
   styleUrls: ['./companies.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
 })
 export class CompaniesComponent implements OnInit {
 

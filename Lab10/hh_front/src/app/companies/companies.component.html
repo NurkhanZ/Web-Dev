@@ -1,6 +1,7 @@
 <h1>Companies</h1>
 <ul>
   <li *ngFor="let c of companies">
-    <a (click)="getVacancies(c.id)" routerLink="/vacancies">Name: {{c.name}} ---- Description: {{c.description}}</a>
+    <a (click)="getVacancies(c.id)" [routerLink]="['/vacancies', c.id]"
+    >Name: {{c.name}} ---- Description: {{c.description}}</a>
   </li>
 </ul>  
